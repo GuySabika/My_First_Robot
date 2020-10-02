@@ -19,7 +19,7 @@ public class TankDrive extends CommandBase {
 
     @Override
     public void execute() {
-        drivetrain.tankDrive(left.get(),right.get());
+        drivetrain.tankDrive(left.get(), right.get());
     }
 
     @Override

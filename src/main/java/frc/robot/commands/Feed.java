@@ -2,22 +2,22 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Gripper;
+import frc.robot.subsystems.Feeder;
 
-public class Grip extends CommandBase {
+public class Feed extends CommandBase {
 
-    private Gripper gripper;
+    private Feeder feed;
     private double timer;
 
-    public Grip(Gripper gripper) {
-        this.gripper = gripper;
+    public Feed(Feeder feed) {
+        this.feed = feed;
         this.timer = Timer.getFPGATimestamp();
-        addRequirements(gripper);
+        addRequirements(feed);
     }
 
     @Override
     public void execute() {
-        gripper.grip();
+        feed.feed();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Grip extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        gripper.stopGriper();
+        feed.stopFeed();
     }
 
 }

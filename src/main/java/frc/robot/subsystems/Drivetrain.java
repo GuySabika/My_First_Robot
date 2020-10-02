@@ -18,18 +18,18 @@ public class Drivetrain extends SubsystemBase {
         this.right = right;
     }
 
-    public void stop(){
+    public void stop() {
         left.stopMotor();
         right.stopMotor();
     }
 
-    public void tankDrive(double leftSpeed,double rightSpeed){
+    public void tankDrive(double leftSpeed, double rightSpeed) {
         left.set(leftSpeed);
         right.set(rightSpeed);
     }
 
     @Override
     public Command getDefaultCommand() {
-        return new TankDrive(this, OI::getLeftY,OI::getRightY);
+        return new TankDrive(this, OI::getLeftY, OI::getRightY);
     }
 }
