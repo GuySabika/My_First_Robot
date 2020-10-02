@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj2.command.button.Button;
 import frc.robot.commands.Grip;
 
 public class OI/*GEVALD*/ {
+
     static Joystick left = new Joystick(0);
     static Joystick right = new Joystick(1);
     XboxController xboxController = new XboxController(2);

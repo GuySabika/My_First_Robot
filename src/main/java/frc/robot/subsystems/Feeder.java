@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 
 public class Feeder implements Subsystem {
+
     private SpeedController speedController;
 
     public Feeder(SpeedController speedController) {

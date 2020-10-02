@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Gripper extends SubsystemBase {
+
     SpeedController speedController;
 
     public Gripper(DigitalInput digitalInput, SpeedController speedController) {
