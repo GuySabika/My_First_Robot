@@ -16,6 +16,7 @@ import frc.robot.commands.Shoot;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Gripper;
+import frc.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -27,7 +28,7 @@ public class Robot extends TimedRobot {
     public static Command m_autonomousCommand;
     public static Drivetrain drivetrain;
     public static Gripper gripper;
-    public static Shoot shoot;
+    public static Shooter shoot;
     public static Feeder feed;
 
     /**
@@ -41,6 +42,10 @@ public class Robot extends TimedRobot {
         drivetrain = new Drivetrain(new WPI_TalonSRX(RobotMap.CAN.LEFT), new WPI_TalonSRX(RobotMap.CAN.RIGHT));
         feed = new Feeder(new WPI_VictorSPX(RobotMap.CAN.FEEDER));
         gripper = new Gripper(new WPI_VictorSPX(RobotMap.CAN.GRIPPER));
+        WPI_TalonSRX master = new WPI_TalonSRX(RobotMap.CAN.SHOOTER1);
+        WPI_VictorSPX slave = new WPI_VictorSPX(RobotMap.CAN.SHOOTER2);
+        slave.follow(master);
+        shoot = new Shooter(master);
     }
 
     /**
