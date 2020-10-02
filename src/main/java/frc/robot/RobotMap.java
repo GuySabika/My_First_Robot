@@ -8,5 +8,7 @@ public interface RobotMap {
         static final int RIGHT = 1;
         static final int FEEDER = 2;
         static final int GRIPPER = 3;
+        static final int SHOOTER1 = 4;
+        static final int SHOOTER2 = 5;
     }
 }
