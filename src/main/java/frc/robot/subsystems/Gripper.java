@@ -9,7 +9,7 @@ public class Gripper extends SubsystemBase {
 
     SpeedController speedController;
 
-    public Gripper(DigitalInput digitalInput, SpeedController speedController) {
+    public Gripper(SpeedController speedController) {
         this.speedController = speedController;
     }
 
