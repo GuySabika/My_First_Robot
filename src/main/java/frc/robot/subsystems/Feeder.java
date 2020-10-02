@@ -10,10 +10,11 @@ public class Feeder implements Subsystem {
         this.speedController = speedController;
     }
 
-    public void feed(){
+    public void feed() {
         speedController.set(0.5);
     }
-    public void stopFeed(){
+
+    public void stopFeed() {
         speedController.stopMotor();
     }
 }

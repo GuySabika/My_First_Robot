@@ -10,10 +10,11 @@ public class OI/*GEVALD*/ {
     static Joystick right = new Joystick(1);
     XboxController xboxController = new XboxController(2);
 
-    public  OI (){
-       Button buttonGripper = new Button(xboxController::getXButton);
-       buttonGripper.whenPressed(new Grip(Robot.gripper));
+    public OI() {
+        Button buttonGripper = new Button(xboxController::getXButton);
+        buttonGripper.whenPressed(new Grip(Robot.gripper));
     }
+
     public static double getLeftX() {
         return left.getX();
     }
