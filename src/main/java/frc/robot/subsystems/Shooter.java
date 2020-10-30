@@ -5,8 +5,14 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Shooter extends SubsystemBase {
+import java.util.function.Supplier;
 
+public class Shooter extends SubsystemBase {
+    public static final Supplier<Double> KP = ()->(0.5);
+    public static final Supplier<Double> KI = ()->(0.005);
+    public static final Supplier<Double> KD = ()->(0.05);
+    public static final Supplier<Double> TOLERANCE = ()->(10.0);
+    public static final Supplier<Double> SETPOINT = ()->(720.0);
     private SpeedController speedController;
     private Encoder encoder;
 

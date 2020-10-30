@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj2.command.button.Button;
 import frc.robot.commands.Feed;
 import frc.robot.commands.Grip;
 import frc.robot.commands.Shoot;
+import frc.robot.commands.ShooterWithPID;
+import frc.robot.subsystems.Shooter;
+
+import java.util.function.Supplier;
 
 public class OI/*GEVALD*/ {
 
@@ -18,7 +22,7 @@ public class OI/*GEVALD*/ {
         Button buttonGripper = new Button(xboxController::getXButton);
         buttonGripper.whenPressed(new Grip(Robot.gripper).andThen(new Feed(Robot.feed), new InstantCommand(Robot.feed::addBall,Robot.feed)));
         Button buttonFeeder = new Button(xboxController::getYButton);
-        buttonFeeder.whenPressed(new Feed(Robot.feed).andThen(new Grip(Robot.gripper),new Shoot(Robot.shoot),new InstantCommand(Robot.feed::lessBall,Robot.feed)));
+        buttonFeeder.whenPressed(new Feed(Robot.feed).andThen(new ShooterWithPID(Robot.shoot, Shooter.KP,Shooter.KI,Shooter.KD,Shooter.TOLERANCE,Shooter.SETPOINT),new InstantCommand(Robot.feed::lessBall,Robot.feed)));
     }
 
     public static double getLeftX() {

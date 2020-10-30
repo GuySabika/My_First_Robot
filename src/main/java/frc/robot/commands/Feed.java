@@ -22,7 +22,7 @@ public class Feed extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return (Timer.getFPGATimestamp() - timer >= 500);
+        return (Timer.getFPGATimestamp() - timer >= 0.5);
     }
 
     @Override
