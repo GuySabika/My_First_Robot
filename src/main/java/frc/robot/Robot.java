@@ -9,10 +9,11 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.Shoot;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Gripper;
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
     public static Shooter shoot;
     public static Feeder feed;
 
+
     /**
      * This function is run when the robot is first started up and should be used for any
      * initialization code.
@@ -41,11 +43,11 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         drivetrain = new Drivetrain(new WPI_TalonSRX(RobotMap.CAN.LEFT), new WPI_TalonSRX(RobotMap.CAN.RIGHT));
         feed = new Feeder(new WPI_VictorSPX(RobotMap.CAN.FEEDER));
-        gripper = new Gripper(new WPI_VictorSPX(RobotMap.CAN.GRIPPER));
+        gripper = new Gripper(new WPI_VictorSPX(RobotMap.CAN.GRIPPER),new DigitalInput(RobotMap.DIO.DIGITAL_INPUT));
         WPI_TalonSRX master = new WPI_TalonSRX(RobotMap.CAN.SHOOTER1);
         WPI_VictorSPX slave = new WPI_VictorSPX(RobotMap.CAN.SHOOTER2);
         slave.follow(master);
-        shoot = new Shooter(master);
+        shoot = new Shooter(master,new Encoder(RobotMap.DIO.NEGATIVE,RobotMap.DIO.POSITIVE));
     }
 
     /**

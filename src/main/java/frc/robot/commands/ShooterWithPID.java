@@ -29,6 +29,7 @@ public class ShooterWithPID extends CommandBase {
 
     @Override
     public void initialize() {
+        shooter.reset();
         pidController = new PIDController(kp.get(),ki.get(), kd.get());
     }
 
@@ -36,6 +37,6 @@ public class ShooterWithPID extends CommandBase {
     public void execute() {
         pidController.setPID(kp.get(),ki.get(), kd.get());
         pidController.setTolerance(tolerance.get());
-        shooter.speedShoot(pidController.calculate(,setpoint.get()));           /*need encoder and max balls*/
+        shooter.speedShoot(pidController.calculate(shooter.getDistance(),setpoint.get()));           /*need encoder and max balls*/
     }
 }

@@ -8,9 +8,14 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Gripper extends SubsystemBase {
 
     SpeedController speedController;
+    DigitalInput digitalInput;
 
-    public Gripper(SpeedController speedController) {
+    public Gripper(SpeedController speedController, DigitalInput digitalInput) {
         this.speedController = speedController;
+        this.digitalInput = digitalInput;
+    }
+    public boolean hasBall(){
+        return digitalInput.get();
     }
 
     public void grip() {
