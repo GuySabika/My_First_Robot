@@ -39,4 +39,9 @@ public class ShooterWithPID extends CommandBase {
         pidController.setTolerance(tolerance.get());
         shooter.speedShoot(pidController.calculate(shooter.getDistance(),setpoint.get()));           /*need encoder and max balls*/
     }
+
+    @Override
+    public void end(boolean interrupted) {
+        shooter.shot();
+    }
 }

@@ -7,8 +7,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Gripper extends SubsystemBase {
 
-    SpeedController speedController;
-    DigitalInput digitalInput;
+    private SpeedController speedController;
+    private  DigitalInput digitalInput;
 
     public Gripper(SpeedController speedController, DigitalInput digitalInput) {
         this.speedController = speedController;
